@@ -1,31 +1,42 @@
 import React, { Component } from 'react';
-import Vados from 'C:/Users/Andrei/Desktop/Learning/ts_progect/Node+React/React/helloworld/src/img/Vados.jpg';
-import Andros from 'C:/Users/Andrei/Desktop/Learning/ts_progect/Node+React/React/helloworld/src/img/Andros.jpg';
 
 class Dropdown extends Component {
     constructor(props) {
         super(props);
-        this.state = { isOpened: false };
+        this.state = {
+            val: ""
+        }
+        this.state = { IsCliced: false }
+        this.Cliced = this.Cliced.bind(this);
+        this.Submitet = this.Submitet.bind(this);
     }
 
-    toggleState() {
-        this.setState({ isOpened: !this.state.isOpened });
+    Submitet(event) {
+        event.preventDefault();
+        console.log("This val is : ", this.state.val);
+    }
+
+    Cliced(event) {
+        console.log("This add in input : ", event.target.value);
+        let text = this.setState({ val: event.target.value });
+
+    }
+    Ref() {
+        this.setState({ IsCliced: !this.state.IsCliced });
     }
 
     render() {
-            console.log('isOpened : ', this.state.isOpened);
-            let dropdonwtext;
-            let dropdonwtext1;
-            if (!this.state.isOpened) {
-                dropdonwtext = ( < img src = { Vados }
-                    />);
-                }
-                if (this.state.isOpened) {
-                    dropdonwtext1 = ( < div > < img src = { Andros }
-                        /></div > );
-                }
-                return ( < div onClick = { this.toggleState.bind(this) } > { dropdonwtext1 } { dropdonwtext } <
-                    /div > );
-                }
-            }
-            export default Dropdown;
+        let newinputtext;
+        if (this.state.IsCliced) {
+            newinputtext = < h1 > { this.state.val } < /h1>
+        }
+        return ( < form onSubmit = { this.Submitet.bind(this) } > { newinputtext } <
+            input type = "text"
+            placeholder = "value"
+            onChange = { this.Cliced.bind(this) }
+            /> <
+            button onClick = { this.Ref.bind(this) } > Изменить < /button> < /
+            form > );
+    }
+}
+export default Dropdown;

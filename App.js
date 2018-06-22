@@ -4,11 +4,11 @@ import Dropdown from './Dropdown';
 class App extends Component {
     render() {
         return ( <
-            div >
+            html >
             <
             Dropdown / >
             <
-            /div >) ;
+            /html >) ;
         }
     }
     export default App;
