@@ -1,14 +1,23 @@
-import React, { Component } from 'react';
-import Dropdown from './Dropdown';
+import React, { Component, PureComponent, Fragment } from "react";
+import { render } from "react-dom";
+import Scope from './Scope';
+import './App.css';
+
+
 
 class App extends Component {
+
+
     render() {
         return ( <
-            html >
+            html className = "main" >
             <
-            Dropdown / >
+            h1 className = "head" > Ежедневние Альфа < /h1> <
+            Scope /
+            >
             <
-            /html >) ;
-        }
+            /
+            html > );
     }
-    export default App;
+}
+export default App;
